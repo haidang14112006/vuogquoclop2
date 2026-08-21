@@ -1,0 +1,336 @@
+/* ===================================================
+   ENGLISH FUN ZONE (TIẾNG ANH LỚP 2) STYLES
+   =================================================== */
+
+.eng-theme-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.theme-pill-btn {
+  background: white;
+  border: 2.5px solid #86efac;
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #166534;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-pill-btn:hover {
+  background: #f0fdf4;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(34, 197, 94, 0.15);
+}
+
+.theme-pill-btn.active {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+  border-color: #15803d;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+/* Flashcards Grid */
+.flashcards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.flashcard {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 20px 14px;
+  text-align: center;
+  box-shadow: var(--shadow-bouncy);
+  border: 3px solid #bbf7d0;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.flashcard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(134, 239, 172, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.flashcard:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #22c55e;
+  box-shadow: 0 16px 25px -5px rgba(34, 197, 94, 0.25);
+}
+
+.flashcard:active {
+  transform: scale(0.96);
+}
+
+.flashcard.card-speaking {
+  animation: speakPop 0.5s ease;
+}
+
+@keyframes speakPop {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.12); border-color: #22c55e; }
+  100% { transform: scale(1); }
+}
+
+.card-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flashcard:hover .card-emoji {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.card-en-word {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #15803d;
+  margin-bottom: 4px;
+}
+
+.card-phonetic {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.card-vi-meaning {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f0fdf4;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+}
+
+.card-speaker-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f0fdf4;
+  color: #16a34a;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border: 1.5px solid #86efac;
+}
+
+/* Listen & Guess Game Box */
+.listen-game-container {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-bouncy);
+  border: 3px solid #86efac;
+  max-width: 680px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.listen-play-btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  font-size: 2.4rem;
+  cursor: pointer;
+  box-shadow: 0 8px 0 #15803d, 0 15px 20px rgba(34, 197, 94, 0.35);
+  margin: 16px auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.listen-play-btn:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 0 #15803d, 0 20px 25px rgba(34, 197, 94, 0.4);
+}
+
+.listen-play-btn:active,
+.listen-play-btn.pulsing {
+  transform: scale(1.15);
+  box-shadow: 0 2px 0 #15803d;
+}
+
+.listen-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.listen-option-card {
+  background: #f8fafc;
+  border: 3px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.listen-option-card:hover {
+  border-color: #22c55e;
+  background: #f0fdf4;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(34, 197, 94, 0.15);
+}
+
+.listen-option-card .emoji {
+  font-size: 3rem;
+}
+
+.listen-option-card .text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* ===================================================
+   SPELLING GAME STYLES
+   =================================================== */
+.eng-spelling-game-container {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-bouncy);
+  border: 3px solid #ddd6fe;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.spelling-word-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.spelling-letter-fixed {
+  width: 52px;
+  height: 62px;
+  background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+  border: 3px solid #c084fc;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #6b21a8;
+  box-shadow: 0 4px 0 #a855f7;
+}
+
+.spelling-letter-input {
+  width: 52px;
+  height: 62px;
+  background: white;
+  border: 3px dashed #a855f7;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #7c3aed;
+  text-align: center;
+  outline: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 0 #d8b4fe;
+}
+
+.spelling-letter-input:focus {
+  border-color: #7c3aed;
+  background: #faf5ff;
+  box-shadow: 0 4px 0 #9333ea, 0 0 0 3px rgba(124, 58, 237, 0.15);
+  transform: scale(1.05);
+}
+
+.spelling-letter-input.correct-input {
+  background: #86efac;
+  border-color: #22c55e;
+  border-style: solid;
+  color: #14532d;
+  animation: bounceIn 0.3s ease;
+}
+
+.spelling-letter-input.wrong-input {
+  background: #fca5a5;
+  border-color: #ef4444;
+  border-style: solid;
+  color: #7f1d1d;
+  animation: wiggle 0.4s ease;
+}
+
+.spelling-hint-btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.spelling-hint-btn {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 2.5px solid #d8b4fe;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #7c3aed;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 3px 0 #c084fc;
+}
+
+.spelling-hint-btn:hover {
+  background: #f5f3ff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 0 #c084fc;
+}
+
+.spelling-hint-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #c084fc;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}

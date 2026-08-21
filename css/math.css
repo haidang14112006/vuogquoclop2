@@ -1,0 +1,371 @@
+/* ===================================================
+   MATH KINGDOM (TOÁN LỚP 2) STYLES
+   =================================================== */
+
+.math-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.math-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-bouncy);
+  border: 3px solid #ffccd5;
+  position: relative;
+}
+
+.math-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed #fce7f3;
+  padding-bottom: 12px;
+}
+
+.math-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #e11d48;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Practice Problem Box */
+.problem-box {
+  background: linear-gradient(135deg, #fff1f2, #ffe4e6);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: 3px solid #fecdd3;
+}
+
+.math-expression {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #9f1239;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.math-expression .num {
+  background: white;
+  padding: 4px 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 0 #f43f5e;
+}
+
+.math-expression .op {
+  color: #e11d48;
+}
+
+.math-expression .unknown {
+  color: #2563eb;
+  background: #dbeafe;
+  padding: 4px 20px;
+  border-radius: 16px;
+  border: 3px dashed #3b82f6;
+  min-width: 60px;
+  display: inline-block;
+}
+
+/* Multiple choice buttons */
+.math-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.math-btn-opt {
+  background: white;
+  border: 3px solid #f43f5e;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #9f1239;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #fda4af;
+  transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.math-btn-opt:hover {
+  background: #fff1f2;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 #fda4af;
+}
+
+.math-btn-opt:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #fda4af;
+}
+
+.math-btn-opt.correct {
+  background: #86efac !important;
+  border-color: #22c55e !important;
+  color: #14532d !important;
+  box-shadow: 0 5px 0 #16a34a !important;
+  animation: pulseStar 0.5s ease;
+}
+
+.math-btn-opt.wrong {
+  background: #fca5a5 !important;
+  border-color: #ef4444 !important;
+  color: #7f1d1d !important;
+  box-shadow: 0 5px 0 #dc2626 !important;
+  animation: wiggle 0.4s ease;
+}
+
+/* Visual math counters (Apples, Stars, Candies) */
+.visual-counters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 1.6rem;
+}
+
+/* Multiplication Table Navigator */
+.times-table-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.times-btn {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 2px solid #f43f5e;
+  background: white;
+  color: #e11d48;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.times-btn.active {
+  background: #e11d48;
+  color: white;
+}
+
+.table-list {
+  background: #fff5f5;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.table-item {
+  background: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #881337;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.table-item:hover {
+  transform: scale(1.05);
+  background: #ffe4e6;
+}
+
+/* Interactive Clock Module */
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.analog-clock {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: white;
+  border: 10px solid #fb7185;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.1), 0 8px 16px rgba(251, 113, 133, 0.3);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-center-pin {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e11d48;
+  position: absolute;
+  z-index: 10;
+  border: 3px solid white;
+}
+
+.clock-hand {
+  position: absolute;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 10px;
+  transition: transform 0.3s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+.clock-hand.hour {
+  width: 8px;
+  height: 60px;
+  background: #e11d48;
+  z-index: 5;
+}
+
+.clock-hand.minute {
+  width: 5px;
+  height: 85px;
+  background: #3b82f6;
+  z-index: 6;
+}
+
+.clock-number {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.digital-time-display {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: #1e293b;
+  color: #38bdf8;
+  padding: 8px 24px;
+  border-radius: 14px;
+  letter-spacing: 3px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Shapes & Geometry zone */
+.shapes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.shape-item {
+  background: #f8fafc;
+  border: 2.5px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shape-item:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  transform: translateY(-4px);
+}
+
+.shape-item .shape-svg {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 8px;
+}
+
+.shape-item span {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1e293b;
+}
+
+/* ===================================================
+   TIMES TABLE QUIZ INLINE STYLES
+   =================================================== */
+#times-table-quiz .math-btn-opt {
+  font-size: 1.5rem;
+  padding: 12px 16px;
+}
+
+/* ===================================================
+   WORD PROBLEM STYLES
+   =================================================== */
+.wordproblem-story-box {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border: 3px solid #93c5fd;
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wordproblem-story-box::before {
+  content: '📖';
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 2.5rem;
+  opacity: 0.15;
+}
+
+.wordproblem-story-text {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: #1e40af;
+  line-height: 1.8;
+}
+
+/* Star Certificate */
+.star-certificate {
+  background: linear-gradient(135deg, #fef9c3, #fef08a);
+  border: 3px solid #facc15;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 14px rgba(250, 204, 21, 0.2);
+}
+
+.cert-icon {
+  font-size: 3rem;
+  animation: gentleBounce 2.5s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+#cert-level {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #78350f;
+}
+
+#cert-desc {
+  font-size: 0.95rem;
+  color: #92400e;
+  font-weight: 600;
+  margin-top: 4px;
+}
+

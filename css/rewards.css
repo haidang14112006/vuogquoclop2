@@ -1,0 +1,207 @@
+/* ===================================================
+   REWARDS & DASHBOARD (BẢNG THÀNH TÍCH & PHỤ HUYNH) STYLES
+   =================================================== */
+
+.rewards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.reward-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-bouncy);
+  border: 3px solid #fde047;
+}
+
+.reward-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed #fef08a;
+  padding-bottom: 12px;
+}
+
+.reward-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: #a16207;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Badges Showcase Grid */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+}
+
+.badge-item {
+  background: #fffbeb;
+  border: 2px solid #fef08a;
+  border-radius: var(--radius-md);
+  padding: 16px 10px;
+  text-align: center;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.badge-item.unlocked {
+  background: linear-gradient(135deg, #fef9c3, #fef08a);
+  border-color: #facc15;
+  box-shadow: 0 6px 12px rgba(250, 204, 21, 0.25);
+}
+
+.badge-item.locked {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+.badge-item .badge-icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.badge-item.unlocked .badge-icon {
+  animation: gentleBounce 2.5s infinite ease-in-out;
+}
+
+.badge-item .badge-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #854d0e;
+  margin-bottom: 4px;
+}
+
+.badge-item .badge-condition {
+  font-size: 0.8rem;
+  color: #a16207;
+  font-weight: 600;
+}
+
+/* Progress Stats Bars */
+.progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.progress-item {
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  border: 1px solid #e2e8f0;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 16px;
+  background: #e2e8f0;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fill-math {
+  background: linear-gradient(90deg, #f43f5e, #fb7185);
+}
+
+.fill-vn {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+.fill-eng {
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+.fill-creative {
+  background: linear-gradient(90deg, #a855f7, #c084fc);
+}
+
+/* Settings and Reset */
+.parent-controls-box {
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  padding: 18px;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #cbd5e1;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #22c55e;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
