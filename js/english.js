@@ -317,9 +317,8 @@ class EnglishModule {
   }
 
   checkSpellingAnswer(inputs, correctWord) {
-    const correctPositions = inputs.map(inp => parseInt(inp.dataset.index));
     const userAnswer = inputs.map(inp => inp.value).join('');
-    const correctAnswer = correctPositions.map(i => correctWord[i] || this.currentSpellingTarget.word.toUpperCase().replace(/ /g, '')[i]).join('');
+    const correctAnswer = inputs.map(inp => inp.dataset.correct).join('');
 
     if (userAnswer.length === inputs.length) {
       this.spellingAttempts++;

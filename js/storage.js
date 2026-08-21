@@ -39,7 +39,19 @@ class StorageManager {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return { ...DEFAULT_DATA, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        const savedBadges = Array.isArray(parsed.badges) ? parsed.badges : [];
+
+        return {
+          ...DEFAULT_DATA,
+          ...parsed,
+          stats: { ...DEFAULT_DATA.stats, ...(parsed.stats || {}) },
+          settings: { ...DEFAULT_DATA.settings, ...(parsed.settings || {}) },
+          badges: DEFAULT_DATA.badges.map(defaultBadge => ({
+            ...defaultBadge,
+            ...(savedBadges.find(savedBadge => savedBadge.id === defaultBadge.id) || {})
+          }))
+        };
       }
     } catch (e) {
       console.warn("Could not load from localStorage", e);
